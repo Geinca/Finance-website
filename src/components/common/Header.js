@@ -7,6 +7,7 @@ const Header = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [featuresOpen, setFeaturesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,13 +21,27 @@ const Header = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+    setFeaturesOpen(false);
   };
+
+  const toggleFeatures = () => {
+    setFeaturesOpen(!featuresOpen);
+  };
+
+  // Features dropdown items
+  const featuresItems = [
+    { name: "Quick Approval", path: "/features/quick-approval" },
+    { name: "Low Interest Rates", path: "/features/low-rates" },
+    { name: "Flexible EMI", path: "/features/flexible-emi" },
+    { name: "No Collateral", path: "/features/no-collateral" },
+    { name: "Digital Process", path: "/features/digital-process" }
+  ];
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo">
-          <Link to="/" onClick={closeMenu}>Loan</Link>
+          <Link to="/" onClick={closeMenu}>LoanHub</Link>
         </div>
 
         {/* Hamburger for mobile */}
@@ -42,13 +57,54 @@ const Header = () => {
         </div>
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+          {/* Features Dropdown */}
+          <div className={`nav-dropdown ${featuresOpen ? 'open' : ''}`}>
+            <button 
+              className={`nav-dropdown-toggle ${location.pathname.includes('/features') ? 'active' : ''}`}
+              onClick={toggleFeatures}
+            >
+              Features <span className="dropdown-arrow">▼</span>
+            </button>
+            <div className="nav-dropdown-menu">
+              {featuresItems.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.path}
+                  className="nav-dropdown-item"
+                  onClick={closeMenu}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link
-            to="/"
-            className={location.pathname === '/' ? 'active' : ''}
+            to="/success-stories"
+            className={location.pathname === '/success-stories' ? 'active' : ''}
             onClick={closeMenu}
           >
-            Home
+            Success Stories
           </Link>
+          
+          <Link
+            to="/faqs"
+            className={location.pathname === '/faqs' ? 'active' : ''}
+            onClick={closeMenu}
+          >
+            FAQs
+          </Link>
+
+          {/* Schedule a Demo Button */}
+          <Link
+            to="/schedule-demo"
+            className="schedule-demo-btn"
+            onClick={closeMenu}
+          >
+            Schedule a Demo <span className="btn-arrow">→</span>
+          </Link>
+
+          {/* Existing navigation items */}
           <Link
             to="/calculator"
             className={location.pathname === '/calculator' ? 'active' : ''}
@@ -65,24 +121,10 @@ const Header = () => {
           </Link>
           <Link
             to="/apply-loan"
-            className={location.pathname === '/apply-loan' ? 'active' : ''}
+            className={`apply-now-btn ${location.pathname === '/apply-loan' ? 'active' : ''}`}
             onClick={closeMenu}
           >
             Apply Now
-          </Link>
-          <Link
-            to="/loan-status"
-            className={location.pathname === '/loan-status' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            Check Status
-          </Link>
-          <Link
-            to="/contact"
-            className={location.pathname === '/contact' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            Contact
           </Link>
         </nav>
       </div>
