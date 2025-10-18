@@ -3,6 +3,9 @@
   padding: 100px 0;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   position: relative;
+  border: 1px solid #7F7F7F;
+  border-radius: 18px;
+  margin: 10px 0;
 }
 
 .section-header-modern {
@@ -12,34 +15,37 @@
 
 .section-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(90deg, #FFEDD4 0%, #FEF9C2 100%);
+  color: #CA3500;
   padding: 10px 25px;
+  border: 1.6px solid #FFB86A;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 25px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
 .section-header-modern h2 {
-  font-size: 3.2rem;
+  font-size: 48px;
   font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  background: linear-gradient(135deg, #1a202c 0%, #4a5568 100%);
+  color: #0A0A0A;
+  margin: 15px 0;
+  line-height: 1;
+}
+
+.section-header-modern span {
+  background: linear-gradient(90deg, #9810FA 0%, #E60076 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text; /* for Firefox */
 }
 
 .section-header-modern p {
-  font-size: 1.3rem;
-  color: #718096;
-  max-width: 600px;
+  font-size: 20px;
+  color: #4A5565;
   margin: 0 auto;
   line-height: 1.6;
   font-weight: 400;
@@ -64,7 +70,7 @@
   animation: slideUp 0.6s ease-out forwards;
   display: flex;
   flex-direction: column;
-  height: 500px; /* Fixed height for consistency */
+  /* Fixed height for consistency */
 }
 
 .product-card-modern:hover {
@@ -77,6 +83,7 @@
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -101,15 +108,12 @@
 }
 
 .card-content-modern {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
 /* Image Section - Reduced height for better balance */
 .product-image-container {
-  height: 160px; /* Fixed height instead of percentage */
+  /* Fixed height instead of percentage */
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -127,9 +131,11 @@
 .product-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed to contain to show full image */
+  object-fit: contain;
+  /* Changed to contain to show full image */
   object-position: center;
-  padding: 15px; /* Added padding to prevent image from touching edges */
+  padding: 15px;
+  /* Added padding to prevent image from touching edges */
   transition: transform 0.3s ease;
 }
 
@@ -144,7 +150,8 @@
 }
 
 .product-info h3 {
-  font-size: 1.4rem; /* Slightly smaller for better fit */
+  font-size: 1.4rem;
+  /* Slightly smaller for better fit */
   font-weight: 700;
   color: #1a202c;
   margin-bottom: 8px;
@@ -153,7 +160,8 @@
 }
 
 .product-description {
-  font-size: 0.85rem; /* Slightly smaller */
+  font-size: 0.85rem;
+  /* Slightly smaller */
   color: #718096;
   line-height: 1.4;
   margin: 0;
@@ -165,7 +173,8 @@
   padding: 0 20px;
   margin: 8px 0;
   flex: 1;
-  min-height: 80px; /* Ensure consistent height */
+  min-height: 80px;
+  /* Ensure consistent height */
 }
 
 .feature-item-modern {
@@ -187,7 +196,8 @@
   font-weight: 500;
   text-align: left;
   flex: 1;
-  font-size: 0.85rem; /* Slightly smaller */
+  font-size: 0.85rem;
+  /* Slightly smaller */
   line-height: 1.2;
 }
 
@@ -200,7 +210,8 @@
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-top: 1px solid #e2e8f0;
   flex-shrink: 0;
-  min-height: 60px; /* Consistent height */
+  min-height: 60px;
+  /* Consistent height */
 }
 
 .price-tag {
@@ -209,7 +220,8 @@
 
 .price-amount {
   display: block;
-  font-size: 1.6rem; /* Slightly smaller */
+  font-size: 1.6rem;
+  /* Slightly smaller */
   font-weight: 800;
   color: #1a202c;
   line-height: 1;
@@ -248,12 +260,13 @@
   background: white;
   border-top: 1px solid #f1f5f9;
   flex-shrink: 0;
-  min-height: 70px; /* Ensure consistent height */
+  min-height: 70px;
+  /* Ensure consistent height */
 }
 
 .btn-primary-modern {
   flex: 2;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(134.67deg, #FD402F 25.95%, #D797FF 74.85%);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -266,7 +279,8 @@
   justify-content: center;
   gap: 8px;
   font-size: 0.9rem;
-  min-height: 44px; /* Consistent button height */
+  min-height: 44px;
+  /* Consistent button height */
 }
 
 .btn-primary-modern:hover {
@@ -286,7 +300,8 @@
   text-align: center;
   background: white;
   font-size: 0.9rem;
-  min-height: 44px; /* Consistent button height */
+  min-height: 44px;
+  /* Consistent button height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,11 +376,11 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
   }
-  
+
   .product-card-modern {
     height: 480px;
   }
-  
+
   .product-image-container {
     height: 150px;
   }
@@ -375,37 +390,37 @@
   .financial-products-modern {
     padding: 60px 0;
   }
-  
+
   .section-header-modern h2 {
     font-size: 2.5rem;
   }
-  
+
   .products-grid-modern {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-  
+
   .product-card-modern {
     height: 450px;
     margin: 0 10px;
   }
-  
+
   .product-image-container {
     height: 140px;
   }
-  
+
   .card-actions-modern {
     flex-direction: column;
   }
-  
+
   .product-info h3 {
     font-size: 1.3rem;
   }
-  
+
   .product-description {
     font-size: 0.8rem;
   }
-  
+
   .features-list-modern {
     min-height: 70px;
   }
@@ -415,54 +430,54 @@
   .section-header-modern h2 {
     font-size: 2rem;
   }
-  
+
   .section-header-modern p {
     font-size: 1.1rem;
   }
-  
+
   .product-card-modern {
     height: 420px;
   }
-  
+
   .product-image-container {
     height: 120px;
   }
-  
+
   .product-info {
     padding: 12px 15px 8px 15px;
   }
-  
+
   .product-info h3 {
     font-size: 1.2rem;
   }
-  
+
   .cta-content h3 {
     font-size: 2rem;
   }
-  
+
   .features-list-modern {
     padding: 0 15px;
     min-height: 65px;
   }
-  
+
   .feature-item-modern span {
     font-size: 0.8rem;
   }
-  
+
   .pricing-section {
     padding: 10px 15px;
     min-height: 55px;
   }
-  
+
   .price-amount {
     font-size: 1.4rem;
   }
-  
+
   .card-actions-modern {
     padding: 12px 15px;
     min-height: 65px;
   }
-  
+
   .btn-primary-modern,
   .btn-outline-modern {
     padding: 10px 15px;

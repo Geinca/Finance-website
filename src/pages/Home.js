@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { loanOffers } from "../data/MockData";
 import LoanPopup from "../components/LoanPopup";
-import HeroTypingAnimation from "../components/HeroTypingAnimations";
+import Hero  from "../components/Hero";
 import FinancialProducts from "../components/FinancialProducts";
 import "./Home.css";
 
@@ -13,16 +13,12 @@ import {
   FaStar, 
   FaAward, 
   FaUsers,
-  FaHome,
-  FaCar,
-  FaGraduationCap,
   FaBriefcase,
   FaFileInvoiceDollar,
   FaChartLine,
   FaCheckCircle,
   FaClock,
-  FaArrowRight,
-  FaPlayCircle
+  FaArrowRight
 } from "react-icons/fa";
 
 const Home = () => {
@@ -108,32 +104,7 @@ const Home = () => {
   return (
     <div className="home-appx">
       {/* Hero Section */}
-      <HeroTypingAnimation />
-
-      {/* Trust Bar */}
-      <section className="trust-bar-appx">
-        <div className="container">
-          <div className="trust-items-appx">
-            <div className="trust-item-appx">
-              <FaShieldAlt className="trust-icon-appx" />
-              <span>Bank-Grade Security</span>
-            </div>
-            <div className="trust-item-appx">
-              <FaStar className="trust-icon-appx" />
-              <span>4.9/5 Customer Rating</span>
-            </div>
-            <div className="trust-item-appx">
-              <FaAward className="trust-icon-appx" />
-              <span>Best FinTech 2024</span>
-            </div>
-            <div className="trust-item-appx">
-              <FaUsers className="trust-icon-appx" />
-              <span>5000+ Businesses</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Hero />
       <FinancialProducts 
         loanOffers={loanOffers} 
         onApplyClick={handleApplyClick} 

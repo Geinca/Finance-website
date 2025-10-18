@@ -1,130 +1,48 @@
-// src/components/common/Header.js
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import { FaBoxOpen, FaClipboardList, FaCogs, FaTags, FaComments, FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [featuresOpen, setFeaturesOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-    setFeaturesOpen(false);
-  };
-
-  const toggleFeatures = () => {
-    setFeaturesOpen(!featuresOpen);
-  };
-
-  // Features dropdown items
-  const featuresItems = [
-    { name: "Quick Approval", path: "/features/quick-approval" },
-    { name: "Low Interest Rates", path: "/features/low-rates" },
-    { name: "Flexible EMI", path: "/features/flexible-emi" },
-    { name: "No Collateral", path: "/features/no-collateral" },
-    { name: "Digital Process", path: "/features/digital-process" }
-  ];
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <div className="logo">
-          <Link to="/" onClick={closeMenu}>LoanHub</Link>
+      <div className="header-container">
+        {/* Left - Logo */}
+        
+
+        {/* Hamburger for Mobile */}
+        <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
-        {/* Hamburger for mobile */}
-        <div
-          className={`menu-toggle ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          {/* Features Dropdown */}
-          <div className={`nav-dropdown ${featuresOpen ? 'open' : ''}`}>
-            <button 
-              className={`nav-dropdown-toggle ${location.pathname.includes('/features') ? 'active' : ''}`}
-              onClick={toggleFeatures}
-            >
-              Features <span className="dropdown-arrow">▼</span>
-            </button>
-            <div className="nav-dropdown-menu">
-              {featuresItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.path}
-                  className="nav-dropdown-item"
-                  onClick={closeMenu}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <Link
-            to="/success-stories"
-            className={location.pathname === '/success-stories' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            Success Stories
+        {/* Center - Navbar */}
+        <nav className={`header-nav ${menuOpen ? 'active' : ''}`}>
+          <Link to="/products" className="nav-item" onClick={closeMenu}>
+            <FaBoxOpen className="nav-icon" /> Products <span className="arrow">▼</span>
           </Link>
-          
-          <Link
-            to="/faqs"
-            className={location.pathname === '/faqs' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            FAQs
+          <Link to="/services" className="nav-item" onClick={closeMenu}>
+            <FaClipboardList className="nav-icon" /> Services <span className="arrow">▼</span>
           </Link>
-
-          {/* Schedule a Demo Button */}
-          <Link
-            to="/schedule-demo"
-            className="schedule-demo-btn"
-            onClick={closeMenu}
-          >
-            Schedule a Demo <span className="btn-arrow">→</span>
+          <Link to="/features" className="nav-item" onClick={closeMenu}>
+            <FaCogs className="nav-icon" /> Features
           </Link>
-
-          {/* Existing navigation items */}
-          <Link
-            to="/calculator"
-            className={location.pathname === '/calculator' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            Calculator
+          <Link to="/pricing" className="nav-item" onClick={closeMenu}>
+            <FaTags className="nav-icon" /> Pricing
           </Link>
-          <Link
-            to="/offers"
-            className={location.pathname === '/offers' ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            Loan Offers
-          </Link>
-          <Link
-            to="/apply-loan"
-            className={`apply-now-btn ${location.pathname === '/apply-loan' ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Apply Now
+          <Link to="/support" className="nav-item" onClick={closeMenu}>
+            <FaComments className="nav-icon" /> Support <span className="arrow">▼</span>
           </Link>
         </nav>
       </div>

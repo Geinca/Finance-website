@@ -10,12 +10,12 @@ import {
 import './FinancialProducts.css';
 
 // Import your images - make sure these paths are correct
-import personalLoanImage from '../assets/images/personal-loan.png';
-import homeLoanImage from '../assets/images/home-loan.png';
-import businessLoanImage from '../assets/images/business-loan.png';
-import mortageLoanImage from '../assets/images/mortage-loan.png'; // Fixed typo
-import odLoanImage from '../assets/images/od-loan.png';
-import ccLoanImage from '../assets/images/cc-loan.png';
+import personalLoanImage from '../assets/images/Home-loan.png';
+import homeLoanImage from '../assets/images/Home-loan.png';
+import businessLoanImage from '../assets/images/Home-loan.png';
+import mortageLoanImage from '../assets/images/Home-loan.png'; // Fixed typo
+import odLoanImage from '../assets/images/Home-loan.png';
+import ccLoanImage from '../assets/images/Home-loan.png';
 
 // Fallback images in case imports fail
 const fallbackImages = {
@@ -70,9 +70,9 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
     <section className="financial-products-modern">
       <div className="container">
         <div className="section-header-modern">
-          <div className="section-badge">Loan Products</div>
-          <h2>Tailored Financial Solutions for Your Needs</h2>
-          <p>Discover the perfect loan option with competitive rates and flexible terms designed for your unique requirements</p>
+          <div className="section-badge">Our Products ✨</div>
+          <h2>Loans for Every&nbsp;<span>Dream</span></h2>
+          <p>Choose from our wide range of loan products tailored to your needs</p>
         </div>
         
         <div className="products-grid-modern">
@@ -107,34 +107,6 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
                     {getProductDescription(offer.name)}
                   </p>
                 </div>
-
-                {/* Features List */}
-                <div className="features-list-modern">
-                  {offer.features.slice(0, 3).map((feature, idx) => (
-                    <div key={idx} className="feature-item-modern">
-                      <FaCheckCircle className="feature-check" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Pricing & Stats */}
-                <div className="pricing-section">
-                  <div className="price-tag">
-                    <span className="price-amount">{offer.interestRate}%</span>
-                    <span className="price-label">Interest Rate</span>
-                  </div>
-                  <div className="product-stats">
-                    <div className="stat-item">
-                      <FaStar className="stat-icon" />
-                      <span>4.8/5 Rating</span>
-                    </div>
-                    <div className="stat-item">
-                      <FaUsers className="stat-icon" />
-                      <span>500+ Customers</span>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Card Actions */}
@@ -146,9 +118,9 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
                   <span>Apply Now</span>
                   <FaArrowRight className="arrow-icon" />
                 </button>
-                <Link to={`/loans/${offer.id}`} className="btn-outline-modern">
+                {/* <Link to={`/loans/${offer.id}`} className="btn-outline-modern">
                   Learn More
-                </Link>
+                </Link> */}
               </div>
             </div>
           ))}
