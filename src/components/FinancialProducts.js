@@ -5,17 +5,21 @@ import {
   FaCheckCircle,
   FaArrowRight,
   FaStar,
-  FaUsers
+  FaUsers,
+  FaClock,
+  FaPercent,
+  FaMoneyBillWave,
+  FaShieldAlt
 } from 'react-icons/fa';
 import './FinancialProducts.css';
 
 // Import your images - make sure these paths are correct
-import personalLoanImage from '../assets/images/Home-loan.png';
+import personalLoanImage from '../assets/images/personal-loan.png';
 import homeLoanImage from '../assets/images/Home-loan.png';
-import businessLoanImage from '../assets/images/Home-loan.png';
-import mortageLoanImage from '../assets/images/Home-loan.png'; // Fixed typo
-import odLoanImage from '../assets/images/Home-loan.png';
-import ccLoanImage from '../assets/images/Home-loan.png';
+import businessLoanImage from '../assets/images/business-loan.png';
+import mortageLoanImage from '../assets/images/mortage-loan.png'; // Fixed typo
+import odLoanImage from '../assets/images/od-loan.png';
+import ccLoanImage from '../assets/images/cc-loan.png';
 
 // Fallback images in case imports fail
 const fallbackImages = {
@@ -53,7 +57,6 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
     setImageErrors(prev => ({ ...prev, [loanName]: true }));
   };
 
-
   const getProductDescription = (loanName) => {
     const descMap = {
       "Personal Loan": "Meet your personal needs with flexible repayment options",
@@ -64,6 +67,82 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
       "CC Limit Loan": "Increase your purchasing power with higher credit limits",
     };
     return descMap[loanName] || "Customized financial solution for your needs";
+  };
+
+  // Get interest rate based on loan type
+  const getInterestRate = (loanName) => {
+    const rateMap = {
+      "Personal Loan": "10.5% - 15.2%",
+      "Home Loan": "8.4% - 11.5%",
+      "Business Loan": "12.0% - 18.5%",
+      "Mortage Loan": "7.9% - 10.8%",
+      "OD Loan": "11.0% - 16.0%",
+      "CC Limit Loan": "14.0% - 24.0%",
+    };
+    return rateMap[loanName] || "Contact for rates";
+  };
+
+  // Get loan tenure based on loan type
+  const getLoanTenure = (loanName) => {
+    const tenureMap = {
+      "Personal Loan": "1-5 years",
+      "Home Loan": "5-30 years",
+      "Business Loan": "1-10 years",
+      "Mortage Loan": "10-25 years",
+      "OD Loan": "1-3 years",
+      "CC Limit Loan": "1-5 years",
+    };
+    return tenureMap[loanName] || "Flexible tenure";
+  };
+
+  // Get processing time
+  const getProcessingTime = (loanName) => {
+    const timeMap = {
+      "Personal Loan": "2-4 days",
+      "Home Loan": "7-15 days",
+      "Business Loan": "5-10 days",
+      "Mortage Loan": "10-20 days",
+      "OD Loan": "1-3 days",
+      "CC Limit Loan": "1-2 days",
+    };
+    return timeMap[loanName] || "Quick processing";
+  };
+
+  // Get features based on loan type
+  const getProductFeatures = (loanName) => {
+    const featuresMap = {
+      "Personal Loan": [
+        "No collateral required",
+        "Flexible repayment",
+        "Quick disbursal"
+      ],
+      "Home Loan": [
+        "Low interest rates",
+        "Long repayment tenure",
+        "Top-up facility"
+      ],
+      "Business Loan": [
+        "Collateral free options",
+        "Business growth support",
+        "Customized solutions"
+      ],
+      "Mortage Loan": [
+        "Property financing",
+        "Competitive rates",
+        "Easy documentation"
+      ],
+      "OD Loan": [
+        "Flexible withdrawals",
+        "Interest on utilized amount",
+        "Renewable facility"
+      ],
+      "CC Limit Loan": [
+        "Increase credit limit",
+        "Easy eligibility",
+        "Quick approval"
+      ],
+    };
+    return featuresMap[loanName] || ["Customized solutions", "Quick processing", "Expert guidance"];
   };
 
   return (
@@ -88,10 +167,7 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
               {/* Card Content */}
               <div className="card-content-modern">
                 <div className="product-image-container">
-                  <div 
-                    className="image-background"
-                    style={{ }}
-                  >
+                  <div className="image-background">
                     <img 
                       src={getProductImage(offer.name)} 
                       alt={offer.name}
@@ -107,6 +183,72 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
                     {getProductDescription(offer.name)}
                   </p>
                 </div>
+
+                {/* Loan Details Section */}
+                <div className="loan-details-modern">
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <FaPercent className="detail-icon" />
+                      <div className="detail-content">
+                        <span className="detail-label">Interest Rate</span>
+                        <span className="detail-value">{getInterestRate(offer.name)}</span>
+                      </div>
+                    </div>
+                    <div className="detail-item">
+                      <FaClock className="detail-icon" />
+                      <div className="detail-content">
+                        <span className="detail-label">Tenure</span>
+                        <span className="detail-value">{getLoanTenure(offer.name)}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <FaMoneyBillWave className="detail-icon" />
+                      <div className="detail-content">
+                        <span className="detail-label">Processing Time</span>
+                        <span className="detail-value">{getProcessingTime(offer.name)}</span>
+                      </div>
+                    </div>
+                    <div className="detail-item">
+                      <FaShieldAlt className="detail-icon" />
+                      <div className="detail-content">
+                        <span className="detail-label">Security</span>
+                        <span className="detail-value">
+                          {offer.name === "Personal Loan" || offer.name === "CC Limit Loan" ? "Unsecured" : "Secured"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features List */}
+                <div className="features-list-modern">
+                  {getProductFeatures(offer.name).map((feature, idx) => (
+                    <div key={idx} className="feature-item-modern">
+                      <FaCheckCircle className="feature-check" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Pricing & Stats */}
+                <div className="pricing-section">
+                  <div className="price-tag">
+                    <span className="price-amount">Up to ₹50L</span>
+                    <span className="price-label">Maximum Amount</span>
+                  </div>
+                  <div className="product-stats">
+                    <div className="stat-item">
+                      <FaStar className="stat-icon" />
+                      <span>4.8/5 Rating</span>
+                    </div>
+                    <div className="stat-item">
+                      <FaUsers className="stat-icon" />
+                      <span>10K+ Customers</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Card Actions */}
@@ -118,23 +260,9 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
                   <span>Apply Now</span>
                   <FaArrowRight className="arrow-icon" />
                 </button>
-                {/* <Link to={`/loans/${offer.id}`} className="btn-outline-modern">
-                  Learn More
-                </Link> */}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Section CTA */}
-        <div className="section-cta-modern">
-          <div className="cta-content">
-            <h3>Ready to Find Your Perfect Loan?</h3>
-            <p>Join thousands of satisfied customers who've achieved their financial goals with us</p>
-            <Link to="/loan-advisor" className="cta-btn-modern">
-              Get Personalized Recommendation <FaArrowRight />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

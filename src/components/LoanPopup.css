@@ -59,13 +59,13 @@
 .loan-form label {
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
-  color: #333;
+  font-size: 1.01rem;
+  color: #000;
 }
 
 .loan-form input {
   padding: 0.6rem;
-  border-radius: 8px;
+  border-radius: 14px;
   border: 1px solid #ccc;
 }
 

@@ -1,6 +1,6 @@
 /* src/components/FinancialProducts.css */
 .financial-products-modern {
-  padding: 100px 0 10px;
+  padding: 10px 0;
   position: relative;
   border-radius: 18px;
   margin: 10px 0;
@@ -488,13 +488,7 @@
 }
 
 /* New Loan Details Section */
-.loan-details-modern {
-  padding: 15px 20px;
-  border-top: 1px solid #f1f5f9;
-  border-bottom: 1px solid #f1f5f9;
-  background: linear-gradient(135deg, #fafbff 0%, #f8fafc 100%);
-  margin: 10px 0;
-}
+
 
 .detail-row {
   display: flex;
@@ -582,10 +576,6 @@
 
 /* Responsive updates for new sections */
 @media (max-width: 768px) {
-  .loan-details-modern {
-    padding: 12px 15px;
-  }
-  
   .detail-row {
     flex-direction: column;
     gap: 10px;
@@ -603,9 +593,7 @@
 }
 
 @media (max-width: 480px) {
-  .loan-details-modern {
-    padding: 10px 15px;
-  }
+  
   
   .detail-value {
     font-size: 0.85rem;

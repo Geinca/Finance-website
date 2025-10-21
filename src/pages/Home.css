@@ -1,11 +1,8 @@
-/* src/pages/Home.css */
-
-/* ===== RESET AND BASE STYLES ===== */
 .home-appx {
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   line-height: 1.6;
   color: #2d3748;
-  background: #ffffff;
+  background: linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 50%, #FFF7ED 100%);
 }
 
 .container {
@@ -471,10 +468,6 @@
 }
 
 /* ===== PROCESS SECTION ===== */
-.process-section-appx {
-  padding: 100px 0;
-  background: #f8fafc;
-}
 
 .process-steps-appx {
   display: grid;

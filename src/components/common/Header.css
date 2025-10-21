@@ -26,11 +26,17 @@
 }
 
 /* Navigation */
+/* When scrolled, make only the nav background black */
+.header.scrolled .header-nav {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 .header-nav {
   display: flex;
   align-items: center;
   gap: 30px;
-  background: #ff4d4d;
   padding: 8px 20px;
   border-radius: 10px;
 }

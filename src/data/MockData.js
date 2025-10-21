@@ -1,4 +1,51 @@
 // src/data/MockData.js
+import ITRImage from '../assets/images/ITR.png';
+import GSTImage from '../assets/images/GST.png';
+import UDAYAMImage from '../assets/images/UDAYAM.png';
+import balancesheetImage from '../assets/images/Balance-sheet.png';
+
+export const loanServices = [
+  {
+    id: 1,
+    name: "ITR",
+    loanType: "personal",
+    interestRate: 12,
+    maxAmount: 500000,
+    features: ["Quick approval", "No collateral", "Flexible repayment"],
+    image: ITRImage,
+    description: "Meet your personal needs with flexible repayment options"
+  },
+  {
+    id: 2,
+    name: "GST",
+    loanType: "home",
+    interestRate: 8.5,
+    maxAmount: 2000000,
+    features: ["Low interest rates", "Long tenure", "Top-up facility"],
+    image: GSTImage,
+    description: "Realize your dream of owning a home with competitive rates"
+  },
+  {
+    id: 3,
+    name: "UDAYAM",
+    loanType: "business",
+    interestRate: 10,
+    maxAmount: 5000000,
+    features: ["Collateral-free options", "Business growth support", "Customized solutions"],
+    image: UDAYAMImage,
+    description: "Fuel your business growth with customized financing"
+  },
+  {
+    id: 4,
+    name: "Balance Sheet",
+    loanType: "mortage",
+    interestRate: 9.5,
+    maxAmount: 3000000,
+    features: ["Property financing", "Competitive rates", "Easy documentation"],
+    image: balancesheetImage,
+    description: "Get the best mortgage solutions for your property"
+  }
+];
 
 // Loan offers for LoanOffers / Home page
 export const loanOffers = [

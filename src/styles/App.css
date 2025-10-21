@@ -39,6 +39,7 @@ body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
+  background: linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 50%, #FFF7ED 100%);
 }
 
 .container {
