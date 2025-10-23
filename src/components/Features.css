@@ -61,23 +61,20 @@
     margin-bottom: 100px;
 }
 
-.process-steps-appx {
+.feature-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     position: relative;
 }
 
-.process-step-appx {
-    background: white;
-    border-radius: 25px;
-    padding: 40px 30px;
-    text-align: center;
+.feature-cards .process-step-appx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f1f5f9;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
 }
 
 .process-step-appx:hover {
@@ -87,7 +84,7 @@
 
 .step-icon-appx {
     position: relative;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
 .step-icon-svg {
@@ -104,19 +101,9 @@
     transform: scale(1.1);
 }
 
-.step-connector {
-    position: absolute;
-    top: 50%;
-    right: -60px;
-    width: 50px;
-    height: 2px;
-    background: linear-gradient(90deg, #9810FA 0%, #E60076 100%);
-    opacity: 0.3;
-}
 
-.process-step-appx:last-child .step-connector {
-    display: none;
-}
+
+
 
 .step-content-appx {
     position: relative;
@@ -248,10 +235,6 @@
 
     .features-grid-appx {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .step-connector {
-        display: none;
     }
 }
 

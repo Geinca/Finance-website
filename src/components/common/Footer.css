@@ -1,8 +1,5 @@
-/* src/components/common/Footer.css */
-
-/* ===== FOOTER STYLES - FLAT DESIGN ===== */
 .footer {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  background: #101828;
   color: #e2e8f0;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -17,7 +14,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 40px;
-  padding: 80px 0 40px;
+  padding: 0 0 40px;
 }
 
 .footer-section h4 {
@@ -35,35 +32,23 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: linear-gradient(135deg, #4c6fff 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #9810FA 0%, #E60076 100%);
   border-radius: 2px;
 }
 
 /* ===== LOGO SECTION ===== */
-.logo-section .logo {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #4c6fff 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.logo-section .logo-text {
+  font-size: 24px;
+  font-weight: 400;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-section .logo svg {
-  font-size: 2rem;
-  background: linear-gradient(135deg, #4c6fff 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .tagline {
   color: #a0aec0;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin: 20px 0;
   font-size: 1rem;
 }
 
@@ -87,8 +72,24 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Individual colors for each platform */
+.social-links a[aria-label="Facebook"] {
+  background-color: #1877f2; /* Facebook Blue */
+}
+
+.social-links a[aria-label="Twitter"] {
+  background-color: #1da1f2; /* Twitter Blue */
+}
+
+.social-links a[aria-label="LinkedIn"] {
+  background-color: #0077b5; /* LinkedIn Blue */
+}
+
+.social-links a[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
 .social-links a:hover {
-  background: linear-gradient(135deg, #4c6fff 0%, #764ba2 100%);
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(76, 111, 255, 0.3);
   color: white;
@@ -117,7 +118,11 @@
 }
 
 .footer-section ul li a:hover {
-  color: #4c6fff;
+  background: linear-gradient(90deg, #155DFC 0%, #9810FA 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   transform: translateX(5px);
 }
 
@@ -247,12 +252,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px 30px;
   }
-  
+
   .footer-section:first-child {
     grid-column: 1 / -1;
     text-align: center;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -262,27 +267,27 @@
   .footer {
     margin-top: 60px;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
     padding: 60px 0 30px;
   }
-  
+
   .footer-section:first-child {
     grid-column: 1;
   }
-  
+
   .footer-bottom-content {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .footer-links {
     justify-content: center;
   }
-  
+
   .newsletter-form {
     flex-direction: column;
   }
@@ -292,25 +297,25 @@
   .footer-content {
     padding: 50px 0 20px;
   }
-  
+
   .footer-section h4 {
     font-size: 1.2rem;
   }
-  
+
   .logo-section .logo {
     font-size: 1.8rem;
   }
-  
+
   .social-links a {
     width: 40px;
     height: 40px;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .footer-links a:not(:last-child)::after {
     display: none;
   }
@@ -322,6 +327,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -332,10 +338,21 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-.footer-section:nth-child(1) { animation-delay: 0.1s; }
-.footer-section:nth-child(2) { animation-delay: 0.2s; }
-.footer-section:nth-child(3) { animation-delay: 0.3s; }
-.footer-section:nth-child(4) { animation-delay: 0.4s; }
+.footer-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.footer-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.footer-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.footer-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 /* ===== ACCESSIBILITY ===== */
 .social-links a:focus-visible,
@@ -361,6 +378,7 @@
 
 /* ===== REDUCED MOTION SUPPORT ===== */
 @media (prefers-reduced-motion: reduce) {
+
   .footer-section,
   .social-links a,
   .footer-section ul li a,
@@ -377,7 +395,7 @@
     color: black !important;
     margin-top: 0;
   }
-  
+
   .social-links,
   .newsletter-form {
     display: none;

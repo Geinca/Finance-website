@@ -105,7 +105,7 @@ const LoanServices = ({ loanServices = [], onApplyClick }) => {
             >
               {/* Card Content */}
               <div className="card-content-modern">
-                <div className="product-image-container">
+                <div className="service-image-container">
                   <div
                     className="image-background"
                     style={{

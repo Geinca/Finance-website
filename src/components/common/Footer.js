@@ -1,12 +1,11 @@
 // src/components/common/Footer.js
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faHandHoldingUsd, 
-  faHome, 
-  faCalculator, 
-  faFileSignature, 
-  faInfoCircle, 
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faCalculator,
+  faFileSignature,
+  faInfoCircle,
   faQuestionCircle,
   faUser,
   faBriefcase,
@@ -14,15 +13,15 @@ import {
   faBalanceScale,
   faEnvelope,
   faPhone,
-  faMapMarkerAlt
-} from '@fortawesome/free-solid-svg-icons';
-import { 
-  faFacebookF, 
-  faTwitter, 
-  faLinkedinIn, 
-  faInstagram 
-} from '@fortawesome/free-brands-svg-icons';
-import './Footer.css';
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faLinkedinIn,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -32,11 +31,14 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="logo-section">
-              <h3 className="logo">
-                <FontAwesomeIcon icon={faHandHoldingUsd} />
-                Loan
-              </h3>
-              <p className="tagline">Your trusted partner for financial solutions since 2025.</p>
+              <div className="logo-text">
+                <img src="images/logo.png" alt="logo" />
+                <h3>FinTrust</h3>
+              </div>
+              <p className="tagline">
+                Making financial dreams come true, one loan at a time. Trusted
+                by over 50,000 customers nationwide.
+              </p>
               <div className="social-links">
                 <a href="#" aria-label="Facebook">
                   <FontAwesomeIcon icon={faFacebookF} />
@@ -53,7 +55,43 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
+
+          <div className="footer-section">
+            <h4>Products</h4>
+            <ul>
+              <li>
+                <a href="/personal-loans">
+                  <FontAwesomeIcon icon={faUser} />
+                  Personal Loans
+                </a>
+              </li>
+              <li>
+                <a href="/business-loans">
+                  <FontAwesomeIcon icon={faBriefcase} />
+                  Business Loans
+                </a>
+              </li>
+              <li>
+                <a href="/mortgage">
+                  <FontAwesomeIcon icon={faHome} />
+                  Home Loans
+                </a>
+              </li>
+              <li>
+                <a href="/auto-loans">
+                  <FontAwesomeIcon icon={faCar} />
+                  Mortage Loans
+                </a>
+              </li>
+              <li>
+                <a href="/debt-consolidation">
+                  <FontAwesomeIcon icon={faBalanceScale} />
+                  OD Loan
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
@@ -89,43 +127,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
-          <div className="footer-section">
-            <h4>Services</h4>
-            <ul>
-              <li>
-                <a href="/personal-loans">
-                  <FontAwesomeIcon icon={faUser} />
-                  Personal Loans
-                </a>
-              </li>
-              <li>
-                <a href="/business-loans">
-                  <FontAwesomeIcon icon={faBriefcase} />
-                  Business Loans
-                </a>
-              </li>
-              <li>
-                <a href="/mortgage">
-                  <FontAwesomeIcon icon={faHome} />
-                  Mortgage
-                </a>
-              </li>
-              <li>
-                <a href="/auto-loans">
-                  <FontAwesomeIcon icon={faCar} />
-                  Auto Loans
-                </a>
-              </li>
-              <li>
-                <a href="/debt-consolidation">
-                  <FontAwesomeIcon icon={faBalanceScale} />
-                  Debt Consolidation
-                </a>
-              </li>
-            </ul>
-          </div>
-          
+
           <div className="footer-section">
             <h4>Contact Info</h4>
             <div className="contact-info">
@@ -151,10 +153,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2025 LoanPro. All rights reserved. | Developed by Geinca</p>
+            <p>
+              &copy; 2025 FinTrust. All rights reserved. | Developed by Geinca
+            </p>
             <div className="footer-links">
               <a href="/privacy">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>

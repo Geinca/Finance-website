@@ -1,9 +1,10 @@
 /* src/components/FinancialProducts.css */
 .financial-products-modern {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 100px 0 10px;
-  position: relative;
-  border-radius: 18px;
-  margin: 10px 0;
+  box-sizing: border-box;
 }
 
 .section-header-modern {
@@ -322,55 +323,6 @@
   transform: translateX(3px);
 }
 
-/* Section CTA */
-.section-cta-modern {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  border-radius: 25px;
-  padding: 60px 40px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-}
-
-.cta-content h3 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  background: linear-gradient(45deg, #fff, #e2e8f0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.cta-content p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 30px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-btn-modern {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 15px 35px;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-}
-
-.cta-btn-modern:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
-  gap: 15px;
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
   .products-grid-modern {
@@ -380,10 +332,6 @@
 
   .product-card-modern {
     height: 480px;
-  }
-
-  .product-image-container {
-    height: 150px;
   }
 }
 
@@ -404,10 +352,6 @@
   .product-card-modern {
     height: 450px;
     margin: 0 10px;
-  }
-
-  .product-image-container {
-    height: 140px;
   }
 
   .card-actions-modern {
@@ -440,20 +384,12 @@
     height: 420px;
   }
 
-  .product-image-container {
-    height: 120px;
-  }
-
   .product-info {
     padding: 12px 15px 8px 15px;
   }
 
   .product-info h3 {
     font-size: 1.2rem;
-  }
-
-  .cta-content h3 {
-    font-size: 2rem;
   }
 
   .features-list-modern {
@@ -580,43 +516,131 @@
   min-height: 60px;
 }
 
-/* Responsive updates for new sections */
-@media (max-width: 768px) {
+
+/* ===== Better Tablet Responsiveness (<=992px) ===== */
+@media (max-width: 992px) {
+  .section-header-modern {
+    margin-bottom: 50px;
+    padding: 0 20px;
+  }
+
+  .section-header-modern h2 {
+    font-size: 2.3rem;
+    line-height: 1.3;
+  }
+
+  .products-grid-modern {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .product-card-modern {
+    margin: 0 15px;
+    height: auto; /* Let height adjust automatically */
+  }
+
   .loan-details-modern {
-    padding: 12px 15px;
+    padding: 15px;
   }
-  
-  .detail-row {
+
+  .pricing-section {
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .detail-item {
-    justify-content: flex-start;
-  }
-  
-  .features-list-modern {
-    padding: 12px 15px;
-    min-height: 70px;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 
-@media (max-width: 480px) {
+/* ===== Mobile-Friendly Layout (<=600px) ===== */
+@media (max-width: 600px) {
+  .financial-products-modern {
+    padding: 50px 0;
+  }
+
+  .section-header-modern h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-header-modern p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .products-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card-modern {
+    height: auto;
+    margin: 0 10px;
+  }
+
+  .product-info {
+    padding: 10px 15px;
+  }
+
+  .product-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .product-description {
+    font-size: 0.8rem;
+  }
+
   .loan-details-modern {
     padding: 10px 15px;
   }
-  
-  .detail-value {
-    font-size: 0.85rem;
+
+  .detail-row {
+    flex-direction: column;
+    gap: 8px;
   }
-  
-  .features-list-modern {
-    min-height: 65px;
+
+  .pricing-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
-  
+
+  .price-amount {
+    font-size: 1.3rem;
+  }
+
+  .card-actions-modern {
+    flex-direction: column;
+    padding: 12px 15px;
+  }
+
+  .btn-primary-modern {
+    width: 100%;
+  }
+}
+
+/* ===== Small Phones (<=400px) ===== */
+@media (max-width: 400px) {
+  .section-header-modern h2 {
+    font-size: 1.6rem;
+  }
+
+  .product-info h3 {
+    font-size: 1rem;
+  }
+
   .feature-item-modern span {
+    font-size: 0.75rem;
+  }
+
+  .btn-primary-modern {
     font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+
+  .pricing-section {
+    padding: 10px 12px;
+  }
+
+  .loan-details-modern {
+    padding: 8px 12px;
   }
 }
 

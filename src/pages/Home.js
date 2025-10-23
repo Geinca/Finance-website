@@ -7,17 +7,11 @@ import LoanPopup from "../components/LoanPopup";
 import Hero from "../components/Hero";
 import FinancialProducts from "../components/FinancialProducts";
 import "./Home.css";
-
-// Import professional icons (you can use react-icons or similar)
-import {
-  FaBriefcase,
-  FaFileInvoiceDollar,
-  FaChartLine,
-  FaCheckCircle
-} from "react-icons/fa";
 import LoanForm from "../components/LoanForm";
 import FinancialServices from "../components/FinancialServices";
 import Features from "../components/Features";
+import Cta from "../components/Cta";
+import Testimonial from "../components/Testimonial";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -67,43 +61,9 @@ const Home = () => {
         loanServices={loanServices}
         onApplyClick={handleApplyClick}
       />
-
       <Features />
-
-      {/* Testimonials - AppX Style */}
-      <section className="testimonials-appx">
-        <div className="container">
-          <div className="section-header-appx">
-            <h2>What Our Clients Say</h2>
-            <p>Trusted by businesses across India</p>
-          </div>
-          <div className="testimonials-grid-appx">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card-appx">
-                <div className="testimonial-content-appx">
-                  <div className="rating-appx">
-                    {"★".repeat(testimonial.rating)}
-                    {"☆".repeat(5 - testimonial.rating)}
-                  </div>
-                  <p>"{testimonial.content}"</p>
-                </div>
-                <div className="client-info-appx">
-                  <div className="client-avatar-appx">
-                    {testimonial.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <div className="client-details-appx">
-                    <strong>{testimonial.name}</strong>
-                    <span>{testimonial.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Cta />
+      <Testimonial />
 
       <LoanPopup
         show={showPopup}
