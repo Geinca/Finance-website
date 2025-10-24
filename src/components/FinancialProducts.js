@@ -1,7 +1,7 @@
 // src/components/FinancialProducts.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
   FaCheckCircle,
   FaArrowRight,
   FaStar,
@@ -9,17 +9,17 @@ import {
   FaClock,
   FaPercent,
   FaMoneyBillWave,
-  FaShieldAlt
-} from 'react-icons/fa';
-import './FinancialProducts.css';
+  FaShieldAlt,
+} from "react-icons/fa";
+import "./FinancialProducts.css";
 
 // Import your images - make sure these paths are correct
-import personalLoanImage from '../assets/images/personal-loan.png';
-import homeLoanImage from '../assets/images/Home-loan.png';
-import businessLoanImage from '../assets/images/business-loan.png';
-import mortageLoanImage from '../assets/images/mortage-loan.png'; // Fixed typo
-import odLoanImage from '../assets/images/od-loan.png';
-import ccLoanImage from '../assets/images/cc-loan.png';
+import personalLoanImage from "../assets/images/personal-loan.png";
+import homeLoanImage from "../assets/images/Home-loan.png";
+import businessLoanImage from "../assets/images/business-loan.png";
+import mortageLoanImage from "../assets/images/mortage-loan.png"; // Fixed typo
+import odLoanImage from "../assets/images/od-loan.png";
+import ccLoanImage from "../assets/images/cc-loan.png";
 
 // Fallback images in case imports fail
 const fallbackImages = {
@@ -44,27 +44,33 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
       "OD Loan": odLoanImage,
       "CC Limit Loan": ccLoanImage,
     };
-    
+
     // Return imported image or fallback if there's an error
     if (imageErrors[loanName]) {
       return fallbackImages[loanName] || fallbackImages["Personal Loan"];
     }
-    
-    return imageMap[loanName] || fallbackImages[loanName] || fallbackImages["Personal Loan"];
+
+    return (
+      imageMap[loanName] ||
+      fallbackImages[loanName] ||
+      fallbackImages["Personal Loan"]
+    );
   };
 
   const handleImageError = (loanName) => {
-    setImageErrors(prev => ({ ...prev, [loanName]: true }));
+    setImageErrors((prev) => ({ ...prev, [loanName]: true }));
   };
 
   const getProductDescription = (loanName) => {
     const descMap = {
-      "Personal Loan": "Meet your personal needs with flexible repayment options",
+      "Personal Loan":
+        "Meet your personal needs with flexible repayment options",
       "Home Loan": "Realize your dream of owning a home with competitive rates",
       "Business Loan": "Fuel your business growth with customized financing",
       "Mortage Loan": "Get the best mortgage solutions for your property",
       "OD Loan": "Flexible overdraft facility for your business needs",
-      "CC Limit Loan": "Increase your purchasing power with higher credit limits",
+      "CC Limit Loan":
+        "Increase your purchasing power with higher credit limits",
     };
     return descMap[loanName] || "Customized financial solution for your needs";
   };
@@ -114,35 +120,41 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
       "Personal Loan": [
         "No collateral required",
         "Flexible repayment",
-        "Quick disbursal"
+        "Quick disbursal",
       ],
       "Home Loan": [
         "Low interest rates",
         "Long repayment tenure",
-        "Top-up facility"
+        "Top-up facility",
       ],
       "Business Loan": [
         "Collateral free options",
         "Business growth support",
-        "Customized solutions"
+        "Customized solutions",
       ],
       "Mortage Loan": [
         "Property financing",
         "Competitive rates",
-        "Easy documentation"
+        "Easy documentation",
       ],
       "OD Loan": [
         "Flexible withdrawals",
         "Interest on utilized amount",
-        "Renewable facility"
+        "Renewable facility",
       ],
       "CC Limit Loan": [
         "Increase credit limit",
         "Easy eligibility",
-        "Quick approval"
+        "Quick approval",
       ],
     };
-    return featuresMap[loanName] || ["Customized solutions", "Quick processing", "Expert guidance"];
+    return (
+      featuresMap[loanName] || [
+        "Customized solutions",
+        "Quick processing",
+        "Expert guidance",
+      ]
+    );
   };
 
   return (
@@ -150,26 +162,31 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
       <div className="container">
         <div className="section-header-modern">
           <div className="section-badge">Our Products ✨</div>
-          <h2>Loans for Every&nbsp;<span>Dream</span></h2>
-          <p>Choose from our wide range of loan products tailored to your needs</p>
+          <h2>
+            Loans for Every&nbsp;<span>Dream</span>
+          </h2>
+          <p>
+            Choose from our wide range of loan products tailored to your needs
+          </p>
         </div>
-        
+
         <div className="products-grid-modern">
           {loanOffers.map((offer, index) => (
-            <div 
+            <div
               key={offer.id}
-              className={`product-card-modern ${hoveredCard === offer.id ? 'hovered' : ''}`}
+              className={`product-card-modern ${
+                hoveredCard === offer.id ? "hovered" : ""
+              }`}
               onMouseEnter={() => setHoveredCard(offer.id)}
               onMouseLeave={() => setHoveredCard(null)}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-
               {/* Card Content */}
               <div className="card-content-modern">
                 <div className="product-image-container">
                   <div className="image-background">
-                    <img 
-                      src={getProductImage(offer.name)} 
+                    <img
+                      src={getProductImage(offer.name)}
                       alt={offer.name}
                       className="product-image"
                       onError={() => handleImageError(offer.name)}
@@ -184,68 +201,79 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
                   </p>
                 </div>
 
-                {/* Loan Details Section */}
-                <div className="loan-details-modern">
-                  <div className="detail-row">
-                    <div className="detail-item">
-                      <FaPercent className="detail-icon" />
-                      <div className="detail-content">
-                        <span className="detail-label">Interest Rate</span>
-                        <span className="detail-value">{getInterestRate(offer.name)}</span>
+                <div className="hover-details-modern">
+                  {/* Loan Details Section */}
+                  <div className="loan-details-modern">
+                    <div className="detail-row">
+                      <div className="detail-item">
+                        <FaPercent className="detail-icon" />
+                        <div className="detail-content">
+                          <span className="detail-label">Interest Rate</span>
+                          <span className="detail-value">
+                            {getInterestRate(offer.name)}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="detail-item">
+                        <FaClock className="detail-icon" />
+                        <div className="detail-content">
+                          <span className="detail-label">Tenure</span>
+                          <span className="detail-value">
+                            {getLoanTenure(offer.name)}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="detail-item">
-                      <FaClock className="detail-icon" />
-                      <div className="detail-content">
-                        <span className="detail-label">Tenure</span>
-                        <span className="detail-value">{getLoanTenure(offer.name)}</span>
+                    <div className="detail-row">
+                      <div className="detail-item">
+                        <FaMoneyBillWave className="detail-icon" />
+                        <div className="detail-content">
+                          <span className="detail-label">Processing Time</span>
+                          <span className="detail-value">
+                            {getProcessingTime(offer.name)}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="detail-item">
+                        <FaShieldAlt className="detail-icon" />
+                        <div className="detail-content">
+                          <span className="detail-label">Security</span>
+                          <span className="detail-value">
+                            {offer.name === "Personal Loan" ||
+                            offer.name === "CC Limit Loan"
+                              ? "Unsecured"
+                              : "Secured"}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="detail-row">
-                    <div className="detail-item">
-                      <FaMoneyBillWave className="detail-icon" />
-                      <div className="detail-content">
-                        <span className="detail-label">Processing Time</span>
-                        <span className="detail-value">{getProcessingTime(offer.name)}</span>
-                      </div>
-                    </div>
-                    <div className="detail-item">
-                      <FaShieldAlt className="detail-icon" />
-                      <div className="detail-content">
-                        <span className="detail-label">Security</span>
-                        <span className="detail-value">
-                          {offer.name === "Personal Loan" || offer.name === "CC Limit Loan" ? "Unsecured" : "Secured"}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Features List */}
-                <div className="features-list-modern">
-                  {getProductFeatures(offer.name).map((feature, idx) => (
-                    <div key={idx} className="feature-item-modern">
-                      <FaCheckCircle className="feature-check" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Pricing & Stats */}
-                <div className="pricing-section">
-                  <div className="price-tag">
-                    <span className="price-amount">Up to ₹50L</span>
-                    <span className="price-label">Maximum Amount</span>
+                  {/* Features List */}
+                  <div className="features-list-modern">
+                    {getProductFeatures(offer.name).map((feature, idx) => (
+                      <div key={idx} className="feature-item-modern">
+                        <FaCheckCircle className="feature-check" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                  <div className="product-stats">
-                    <div className="stat-item">
-                      <FaStar className="stat-icon" />
-                      <span>4.8/5 Rating</span>
+
+                  {/* Pricing & Stats */}
+                  <div className="pricing-section">
+                    <div className="price-tag">
+                      <span className="price-amount">Up to ₹50L</span>
+                      <span className="price-label">Maximum Amount</span>
                     </div>
-                    <div className="stat-item">
-                      <FaUsers className="stat-icon" />
-                      <span>10K+ Customers</span>
+                    <div className="product-stats">
+                      <div className="stat-item">
+                        <FaStar className="stat-icon" />
+                        <span>4.8/5 Rating</span>
+                      </div>
+                      <div className="stat-item">
+                        <FaUsers className="stat-icon" />
+                        <span>10K+ Customers</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -253,7 +281,7 @@ const FinancialProducts = ({ loanOffers, onApplyClick }) => {
 
               {/* Card Actions */}
               <div className="card-actions-modern">
-                <button 
+                <button
                   className="btn-primary-modern"
                   onClick={() => onApplyClick(offer)}
                 >

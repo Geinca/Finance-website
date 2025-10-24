@@ -21,7 +21,7 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  max-width: 1100px;
+  /* max-width: 1100px; */
   height: 100vh;
   margin-top: 35px;
   border-radius: 17px;
